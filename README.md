@@ -25,7 +25,11 @@ func main() {
 
 	var stm1 = q.MimeType().Equal("text/plain")
 	var stm2 = q.Name().Contains("Foo")
-	var query = q.Query(stm1).And(stm2).Or(q.Raw(`name = "Bar"`))
+	var query = q.
+		Query(stm1).
+		And(stm2).
+		Or(q.Raw(`name = "pluto"`)).
+		And(q.CreatedTime().After(time.Now().Add(-10 * time.Hour)))
 
 	fmt.Println(q.Stringize(query), "\n")
 
