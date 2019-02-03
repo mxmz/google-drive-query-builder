@@ -2,8 +2,6 @@ package query
 
 import "time"
 
-// https://developers.google.com/drive/api/v3/search-parameters
-
 type Statement interface {
 	toString() string
 }

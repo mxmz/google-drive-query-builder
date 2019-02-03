@@ -5,6 +5,8 @@ import (
 	"time"
 )
 
+// See https://developers.google.com/drive/api/v3/search-parameters
+
 const (
 	operatorDropSecond    = 0
 	operatorAnd           = iota
