@@ -24,6 +24,7 @@ type TextAttribute interface {
 
 type TimeAttribute interface {
 	Equal(time.Time) Statement
+	NotEqual(time.Time) Statement
 	After(time.Time) Statement
 	AfterOrEqual(time.Time) Statement
 	Before(time.Time) Statement
