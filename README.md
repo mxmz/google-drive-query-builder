@@ -1,6 +1,6 @@
 ## Google Drive query builder 
 
-This package helps build search queries for [Google Drive API](https://godoc.org/google.golang.org/api/drive/v3).
+This package helps build search queries for [Google Drive Search API](https://godoc.org/google.golang.org/api/drive/v3#FilesListCall.Q).
 
 Drive `files.list` API and search syntax are documented here:
  - https://developers.google.com/drive/api/v3/reference/files/list
