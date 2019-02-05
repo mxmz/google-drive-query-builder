@@ -53,11 +53,20 @@ func TestAndQuery(t *testing.T) {
 	var expected = `(mimeType = "text/plain") and (name contains "ciao")`
 	Expect(Stringize(query)).To(BeEquivalentTo(expected))
 }
-func TestAndOrQuery(t *testing.T) {
+func TestAndOrQuery1(t *testing.T) {
 	RegisterTestingT(t)
 	var stm1 = MimeType().Equal("text/plain")
 	var stm2 = Name().Contains("ciao")
 	var query = Query(stm1).And(stm2).Or(Raw(`name = "pluto"`))
+	var expected = `((mimeType = "text/plain") and (name contains "ciao")) or (name = "pluto")`
+	Expect(Stringize(query)).To(BeEquivalentTo(expected))
+}
+
+func TestAndOrQuery2(t *testing.T) {
+	RegisterTestingT(t)
+	var stm1 = MimeType().Equal("text/plain")
+	var stm2 = Name().Contains("ciao")
+	var query = OR(AND(stm1, stm2), Raw(`name = "pluto"`))
 	var expected = `((mimeType = "text/plain") and (name contains "ciao")) or (name = "pluto")`
 	Expect(Stringize(query)).To(BeEquivalentTo(expected))
 }

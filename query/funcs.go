@@ -25,3 +25,6 @@ func Owners() CollectionAttribute { return &collectionAttributeAttribute{"owners
 func Readers() CollectionAttribute { return &collectionAttributeAttribute{"readers"} }
 
 func Writers() CollectionAttribute { return &collectionAttributeAttribute{"writers"} }
+
+func AND(l Statement, r Statement) Statement { return Query(l).And(r) }
+func OR(l Statement, r Statement) Statement  { return Query(l).Or(r) }
