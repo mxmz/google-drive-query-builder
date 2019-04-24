@@ -20,11 +20,10 @@ const (
 	operatorBeforeOrEqual = iota
 )
 
-var operators map[int]string
+var operators = initOperators()
 
-func init() {
-
-	operators = map[int]string{
+func initOperators() map[int]string {
+	return map[int]string{
 		operatorAfter:         ">",
 		operatorBefore:        "<",
 		operatorAfterOrEqual:  ">=",
